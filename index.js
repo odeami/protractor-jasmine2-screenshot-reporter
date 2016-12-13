@@ -6,8 +6,8 @@ var fs     = require('fs'),
     _      = require('lodash'),
     path   = require('path'),
     uuid   = require('uuid'),
-    hat    = require('hat');
-
+    hat    = require('hat'),
+    moment = require('moment');
 require('string.prototype.startswith');
 
 function Jasmine2ScreenShotReporter(opts) {
@@ -260,7 +260,7 @@ function Jasmine2ScreenShotReporter(opts) {
   };
 
   var getDestinationWithUniqueDirectory = function(){
-    return getDestination() + hat() + '/';
+    return getDestination() + moment().format("YYMMDD_HHmmss") + '/';
   };
 
   var getCssLinks = function(cssFiles) {
